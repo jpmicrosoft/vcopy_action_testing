@@ -139,7 +139,8 @@ jobs:
           target-org: jpmicrosoft
           target-name: action-test-09-report
           public: true
-          skip-verify: true
+          quick-verify: true
+          force: true
           report: verification-report.json
           upload-report: true
           artifact-name: test-09-report
@@ -147,6 +148,12 @@ jobs:
       - name: Verify report exists
         run: |
           echo "Report path: ${{ steps.copy.outputs.report-path }}"
+          if [ ! -f "verification-report.json" ]; then
+            echo "ERROR: Report file not found"
+            exit 1
+          fi
+          echo "Report contents:"
+          cat verification-report.json | head -20
 
   # Test 10: Dry run (should not create any repo)
   test-dry-run:
