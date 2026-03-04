@@ -1,0 +1,194 @@
+name: Test vcopy Action
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  # Test 1: Basic public copy
+  test-basic:
+    name: "Test 1: Basic copy"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpmicrosoft/vcopy@v1
+        with:
+          source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
+          target-org: jpmicrosoft
+          target-name: action-test-01-basic
+          public: true
+          target-token: ${{ secrets.TARGET_GITHUB_TOKEN }}
+          verbose: true
+
+  # Test 2: No workflows
+  test-no-workflows:
+    name: "Test 2: No workflows"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpmicrosoft/vcopy@v1
+        with:
+          source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
+          target-org: jpmicrosoft
+          target-name: action-test-02-no-workflows
+          public: true
+          no-workflows: true
+          target-token: ${{ secrets.TARGET_GITHUB_TOKEN }}
+
+  # Test 3: No actions
+  test-no-actions:
+    name: "Test 3: No actions"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpmicrosoft/vcopy@v1
+        with:
+          source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
+          target-org: jpmicrosoft
+          target-name: action-test-03-no-actions
+          public: true
+          no-actions: true
+          target-token: ${{ secrets.TARGET_GITHUB_TOKEN }}
+
+  # Test 4: No copilot
+  test-no-copilot:
+    name: "Test 4: No copilot"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpmicrosoft/vcopy@v1
+        with:
+          source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
+          target-org: jpmicrosoft
+          target-name: action-test-04-no-copilot
+          public: true
+          no-copilot: true
+          target-token: ${{ secrets.TARGET_GITHUB_TOKEN }}
+
+  # Test 5: No github (entire .github/)
+  test-no-github:
+    name: "Test 5: No .github"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpmicrosoft/vcopy@v1
+        with:
+          source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
+          target-org: jpmicrosoft
+          target-name: action-test-05-no-github
+          public: true
+          no-github: true
+          target-token: ${{ secrets.TARGET_GITHUB_TOKEN }}
+
+  # Test 6: Code only (no tags/releases)
+  test-code-only:
+    name: "Test 6: Code only"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpmicrosoft/vcopy@v1
+        with:
+          source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
+          target-org: jpmicrosoft
+          target-name: action-test-06-code-only
+          public: true
+          code-only: true
+          target-token: ${{ secrets.TARGET_GITHUB_TOKEN }}
+
+  # Test 7: Skip verify
+  test-skip-verify:
+    name: "Test 7: Skip verify"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpmicrosoft/vcopy@v1
+        id: copy
+        with:
+          source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
+          target-org: jpmicrosoft
+          target-name: action-test-07-skip-verify
+          public: true
+          skip-verify: true
+          target-token: ${{ secrets.TARGET_GITHUB_TOKEN }}
+      - name: Check output
+        run: |
+          echo "Verification status: ${{ steps.copy.outputs.verification-status }}"
+          if [ "${{ steps.copy.outputs.verification-status }}" != "skipped" ]; then
+            echo "ERROR: Expected 'skipped' but got '${{ steps.copy.outputs.verification-status }}'"
+            exit 1
+          fi
+
+  # Test 8: Exclude custom paths
+  test-exclude:
+    name: "Test 8: Exclude paths"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpmicrosoft/vcopy@v1
+        with:
+          source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
+          target-org: jpmicrosoft
+          target-name: action-test-08-exclude
+          public: true
+          exclude: examples,docs
+          target-token: ${{ secrets.TARGET_GITHUB_TOKEN }}
+
+  # Test 9: Report + upload artifact
+  test-report:
+    name: "Test 9: Report + artifact"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpmicrosoft/vcopy@v1
+        id: copy
+        with:
+          source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
+          target-org: jpmicrosoft
+          target-name: action-test-09-report
+          public: true
+          skip-verify: true
+          report: verification-report.json
+          upload-report: true
+          artifact-name: test-09-report
+          target-token: ${{ secrets.TARGET_GITHUB_TOKEN }}
+      - name: Verify report exists
+        run: |
+          echo "Report path: ${{ steps.copy.outputs.report-path }}"
+
+  # Test 10: Dry run (should not create any repo)
+  test-dry-run:
+    name: "Test 10: Dry run"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpmicrosoft/vcopy@v1
+        with:
+          source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
+          target-org: jpmicrosoft
+          target-name: action-test-10-dry-run
+          public: true
+          dry-run: true
+          target-token: ${{ secrets.TARGET_GITHUB_TOKEN }}
+
+  # Test 11: Combined flags (no-github + exclude + code-only + skip-verify)
+  test-combined:
+    name: "Test 11: Combined flags"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpmicrosoft/vcopy@v1
+        with:
+          source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
+          target-org: jpmicrosoft
+          target-name: action-test-11-combined
+          public: true
+          no-github: true
+          code-only: true
+          skip-verify: true
+          exclude: examples
+          target-token: ${{ secrets.TARGET_GITHUB_TOKEN }}
+
+  # Test 12: Quick verify
+  test-quick-verify:
+    name: "Test 12: Quick verify"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpmicrosoft/vcopy@v1
+        with:
+          source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
+          target-org: jpmicrosoft
+          target-name: action-test-12-quick-verify
+          public: true
+          quick-verify: true
+          target-token: ${{ secrets.TARGET_GITHUB_TOKEN }}
