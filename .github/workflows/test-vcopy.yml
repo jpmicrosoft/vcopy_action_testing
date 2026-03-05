@@ -12,8 +12,9 @@ jobs:
     name: "Test 1: Basic copy"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@v1.3.3-test
         with:
+          version: v1.3.3-test
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
           target-name: action-test-01-basic
@@ -26,8 +27,9 @@ jobs:
     name: "Test 2: No workflows"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@v1.3.3-test
         with:
+          version: v1.3.3-test
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
           target-name: action-test-02-no-workflows
@@ -40,8 +42,9 @@ jobs:
     name: "Test 3: No actions"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@v1.3.3-test
         with:
+          version: v1.3.3-test
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
           target-name: action-test-03-no-actions
@@ -54,8 +57,9 @@ jobs:
     name: "Test 4: No copilot"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@v1.3.3-test
         with:
+          version: v1.3.3-test
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
           target-name: action-test-04-no-copilot
@@ -68,8 +72,9 @@ jobs:
     name: "Test 5: No .github"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@v1.3.3-test
         with:
+          version: v1.3.3-test
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
           target-name: action-test-05-no-github
@@ -83,8 +88,9 @@ jobs:
     name: "Test 6: Code only"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@v1.3.3-test
         with:
+          version: v1.3.3-test
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
           target-name: action-test-06-code-only
@@ -97,9 +103,10 @@ jobs:
     name: "Test 7: Skip verify"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@v1.3.3-test
         id: copy
         with:
+          version: v1.3.3-test
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
           target-name: action-test-07-skip-verify
@@ -119,8 +126,9 @@ jobs:
     name: "Test 8: Exclude paths"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@v1.3.3-test
         with:
+          version: v1.3.3-test
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
           target-name: action-test-08-exclude
@@ -133,9 +141,10 @@ jobs:
     name: "Test 9: Report + artifact"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@v1.3.3-test
         id: copy
         with:
+          version: v1.3.3-test
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
           target-name: action-test-09-report
@@ -161,8 +170,9 @@ jobs:
     name: "Test 10: Dry run"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@v1.3.3-test
         with:
+          version: v1.3.3-test
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
           target-name: action-test-10-dry-run
@@ -175,8 +185,9 @@ jobs:
     name: "Test 11: Combined flags"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@v1.3.3-test
         with:
+          version: v1.3.3-test
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
           target-name: action-test-11-combined
@@ -192,8 +203,9 @@ jobs:
     name: "Test 12: Quick verify"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@v1.3.3-test
         with:
+          version: v1.3.3-test
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
           target-name: action-test-12-quick-verify
@@ -206,8 +218,9 @@ jobs:
     name: "Test 13: Visibility"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@v1.3.3-test
         with:
+          version: v1.3.3-test
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
           target-name: action-test-13-visibility
@@ -222,8 +235,9 @@ jobs:
     name: "Test 14: Deprecated public"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@v1.3.3-test
         with:
+          version: v1.3.3-test
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
           target-name: action-test-14-deprecated-public
@@ -237,8 +251,9 @@ jobs:
     name: "Test 15: Visibility private"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@v1.3.3-test
         with:
+          version: v1.3.3-test
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
           target-name: action-test-15-visibility-private
