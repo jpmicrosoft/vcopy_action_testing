@@ -75,6 +75,7 @@ jobs:
           target-name: action-test-05-no-github
           public: true
           no-github: true
+          quick-verify: true
           target-token: ${{ secrets.TARGET_GITHUB_TOKEN }}
 
   # Test 6: Code only (no tags/releases)
