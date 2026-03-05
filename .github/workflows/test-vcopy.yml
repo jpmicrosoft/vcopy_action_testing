@@ -12,7 +12,7 @@ jobs:
     name: "Test 1: Basic copy"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@test-review-fixes-push
         with:
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
@@ -26,7 +26,7 @@ jobs:
     name: "Test 2: No workflows"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@test-review-fixes-push
         with:
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
@@ -40,7 +40,7 @@ jobs:
     name: "Test 3: No actions"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@test-review-fixes-push
         with:
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
@@ -54,7 +54,7 @@ jobs:
     name: "Test 4: No copilot"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@test-review-fixes-push
         with:
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
@@ -68,7 +68,7 @@ jobs:
     name: "Test 5: No .github"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@test-review-fixes-push
         with:
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
@@ -82,7 +82,7 @@ jobs:
     name: "Test 6: Code only"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@test-review-fixes-push
         with:
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
@@ -96,7 +96,7 @@ jobs:
     name: "Test 7: Skip verify"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@test-review-fixes-push
         id: copy
         with:
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
@@ -118,7 +118,7 @@ jobs:
     name: "Test 8: Exclude paths"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@test-review-fixes-push
         with:
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
@@ -132,7 +132,7 @@ jobs:
     name: "Test 9: Report + artifact"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@test-review-fixes-push
         id: copy
         with:
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
@@ -160,7 +160,7 @@ jobs:
     name: "Test 10: Dry run"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@test-review-fixes-push
         with:
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
@@ -174,7 +174,7 @@ jobs:
     name: "Test 11: Combined flags"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@test-review-fixes-push
         with:
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
@@ -191,7 +191,7 @@ jobs:
     name: "Test 12: Quick verify"
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmicrosoft/vcopy@v1
+      - uses: jpmicrosoft/vcopy@test-review-fixes-push
         with:
           source-repo: Azure/terraform-azurerm-avm-res-eventhub-namespace
           target-org: jpmicrosoft
